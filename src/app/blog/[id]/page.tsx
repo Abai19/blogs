@@ -1,14 +1,15 @@
 import { getBlogApi } from "@/server/api"
 import Link from "next/link";
+import { PageProps } from "../../../../.next/types/app/layout";
 
-export default async function Page({ params }: { params: { id: string } }) {
+export default async function Page({ params }: PageProps ) {
     const {id} = await params;
     const data = await getBlogApi(id);
 
     return (
         <div className="min-h-screen bg-gray-300 dark:bg-black text-foreground p-10">
                 <Link
-                    className="px-4 mb-4 py-2 bg-gray-100 dark:bg-gray-800 text-white rounded hover:dark:bg-gray-700 transition hover:bg-gray-200 text-gray-800 dark:text-gray-300"
+                    className="px-4 mb-4 py-2 bg-gray-100 dark:bg-gray-800 text-white rounded hover:dark:bg-gray-700 transition hover:bg-gray-200 text-gray-500 dark:text-gray-300"
                     href={'/'}
                 >
                     Go Back
